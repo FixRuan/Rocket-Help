@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { Center, FlatList, Heading, HStack, IconButton, Text, useTheme, VStack } from "native-base";
 import { ChatTeardropText, SignOut } from "phosphor-react-native";
@@ -10,9 +11,25 @@ import { Order, OrderProps } from "../../Components/Order";
 
 export function Home() {
 	const [statusSelected, setStatusSelected] = useState<"open" | "closed">("open");
-	const [orders, setOrders] = useState<OrderProps[]>([]);
+	const [orders, setOrders] = useState<OrderProps[]>([
+		{
+			id: "123",
+			patrimony: "12312323123",
+			status: "open",
+			when: "18/08/2005 às 12:00"
+		}
+	]);
 
 	const { colors } = useTheme();
+	const navigation = useNavigation();
+
+	function handleNewOrder() {
+		navigation.navigate("register");
+	}
+
+	function handleOpenDetails(orderId: string) {
+		navigation.navigate("details", { orderId });
+	}
 
 	return (
 		<VStack flex={1} bg="gray.700" pb={6}>
@@ -58,7 +75,7 @@ export function Home() {
 				<FlatList
 					data={orders}
 					keyExtractor={item => item.id}
-					renderItem={({ item }) => <Order data={item} />}
+					renderItem={({ item }) => <Order onPress={() => handleOpenDetails(item.id)} data={item} />}
 					showsVerticalScrollIndicator={false}
 					contentContainerStyle={{ paddingBottom: 60 }}
 					ListEmptyComponent={() => (
@@ -72,7 +89,7 @@ export function Home() {
 					)}
 				/>
 
-				<Button title="Nova Solicitação" />
+				<Button title="Nova Solicitação" onPress={handleNewOrder} />
 			</VStack>
 		</VStack>
 	);

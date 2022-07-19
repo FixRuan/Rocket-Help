@@ -10,6 +10,8 @@ import { SignIn } from "./src/screens/SignIn";
 import { Register } from "./src/screens/Register";
 import { Home } from "./src/screens/Home";
 
+import { Routes } from "./src/routes";
+
 export default function App() {
 	const [fontsLoaded] = useFonts({
 		Roboto_400Regular,
@@ -18,7 +20,7 @@ export default function App() {
 
 	return (
 		<NativeBaseProvider theme={THEME}>
-			{fontsLoaded ? <Register /> : <Loading />}
+			{fontsLoaded ? <Routes /> : <Loading />}
 		</NativeBaseProvider>
 	);
 }
