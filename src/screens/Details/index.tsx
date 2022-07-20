@@ -1,8 +1,11 @@
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Text, useTheme, VStack } from "native-base";
-import { Header } from "../../Components/Header";
 
 import { useRoute } from "@react-navigation/native";
+
+import { Header } from "../../Components/Header";
+
 
 type RouteParams = {
 	orderId: string;
