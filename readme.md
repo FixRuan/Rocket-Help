@@ -1,4 +1,4 @@
-# Rocket Help (Aplicação para resoluções de problemas)
+# Rocket Help (Aplicativo para resoluções de problemas)
 Desenvolvido durante o Ignite Lab (Rocketseat)
 
 ## Capa
