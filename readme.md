@@ -15,6 +15,7 @@ Desenvolvido durante o Ignite Lab (Rocketseat)
 
 ## Tecnologias utilizadas
 - React Native
+- Typescript
 - Native Base
 - Firebase
 - React Navigation
